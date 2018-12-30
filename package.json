@@ -5,7 +5,10 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --tls-cipher-list=ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384 --no-deprecation ./bin/main.js"
+    "start": "node --tls-cipher-list=ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384 --no-deprecation ./bin/main.js",
+    "client": "cd client && ionic serve",
+    "dev": "concurrently \"npm start\" \"npm run client\"",
+    "postinstall": "cd client && npm install"
   },
   "repository": {},
   "author": "",
@@ -14,6 +17,7 @@
   "dependencies": {
     "bcrypt": "^3.0.2",
     "body-parser": "1.18.3",
+    "concurrently": "^4.1.0",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "helmet": "^3.14.0",
